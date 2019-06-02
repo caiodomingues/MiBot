@@ -4,7 +4,7 @@ const Client = require('./client/client');
 const {
 	prefix,
 	token,
-} = require('config.json');
+} = require('./config.json');
 
 const client = new Client();
 client.commands = new Discord.Collection();
