@@ -1,20 +1,20 @@
 const fs = require('fs')
 const Discord = require('discord.js');
-const Client = require('./client/Client');
+const Client = require('../client/Client');
 const {
 	prefix,
 	token,
-} = require('./config.json');
+} = require('../config.json');
 
 const client = new Client();
 client.commands = new Discord.Collection();
 
 const queue = new Map();
 
-const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
+const commandFiles = fs.readdirSync('../commands').filter(file => file.endsWith('.js'));
 
 for (const file of commandFiles) {
-	const command = require(`./commands/${file}`);
+	const command = require(`../commands/${file}`);
 	client.commands.set(command.name, command);
 }
 
